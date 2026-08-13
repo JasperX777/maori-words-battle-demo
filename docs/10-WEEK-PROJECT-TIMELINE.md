@@ -16,17 +16,17 @@ The project uses React Native for the mobile application and Supabase for planne
 
 ## 3. Team Responsibilities
 
-| Role | Primary focus | Supporting responsibilities |
-| --- | --- | --- |
-| Member A | React Native architecture, gameplay, authentication integration, automated testing, and mobile builds | Code review, technical documentation, bug fixing, and release support |
-| Member B | Supabase data and Realtime integration, learning features, content workflow, UX, and manual QA | Code review, cultural research coordination, product documentation, and store materials |
+| Role    | Primary focus | Supporting responsibilities |
+|---------| --- | --- |
+| Jasper  | React Native architecture, gameplay, authentication integration, automated testing, and mobile builds | Code review, technical documentation, bug fixing, and release support |
+| Jazeena | Supabase data and Realtime integration, learning features, content workflow, UX, and manual QA | Code review, cultural research coordination, product documentation, and store materials |
 
 Both members remain responsible for design decisions, peer review, weekly demonstrations, and keeping project documentation current.
 
 ## 4. Ten-Week Timeline
 
 | Week | Goal | Jasper | Jazeena | Deliverables and completion check |
-| --- | --- |  | --- | --- |
+| --- | --- | --- | --- | --- |
 | **1 – Discovery and research** | Understand the organisation, users, cultural context, and game concept. | Review the existing application and technical constraints. Map the proposed board-game loop, three difficulty levels, scoring, turn flow, and multiplayer states with the supervisor. | Research Whakatōhea history, regional vocabulary, learning needs, and relevant board-game mechanics. Record source and cultural-review requirements. | Project background summary; target-user definition; research notes and references; initial user flow; supervisor-confirmed game rules and project scope. |
 | **2 – Documentation and prototype** | Turn the agreed concept into an executable project plan and testable prototype. | Write the project document: problem, objectives, scope, user stories, milestones, risks, and acceptance criteria. Build or refine the interactive prototype for login, home, room, gameplay, feedback, and results. | Write the development document: technology stack, setup, architecture, data model, Git workflow, testing approach, and security rules. Prepare wireframes and a starter content structure for Daily Māori and Learn Mode. | Approved project document; reproducible development guide; clickable or runnable end-to-end prototype; prototype feedback recorded with agreed Week 3 backlog. |
 | **3 – Development foundation** | Begin formal development with a stable structure and quality baseline. | Define the app architecture and navigation boundaries. Extract testable gameplay logic from prototype-only UI where necessary. Configure unit tests and continuous type checking. | Define the Supabase development schema and environment setup using placeholder credentials only. Build reusable screens/components and the initial profile/progress data interfaces. | App launches on target development devices; core navigation works; schema and interfaces are documented; baseline type checks and tests pass. |
