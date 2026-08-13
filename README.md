@@ -6,13 +6,18 @@ A polished React Native prototype for learning te reo Māori through friendly mu
 
 The local demo works without an account or cloud project and includes:
 
+- a mock Google/Facebook sign-in screen that does not call external authentication APIs;
 - create-room and join-by-code flows;
-- lobby settings for level, topic, rounds, and player count;
+- editable lobby settings for level, topic, rounds, and player count, plus room-code copying, host-only player management, fixed room seats, and ready/cancel-ready controls;
 - beginner multiple choice, intermediate listening/matching, and advanced typed answers;
 - shared timed rounds, speed scoring, combos, and a final-round bonus;
 - immediate word, meaning, pronunciation, and example feedback;
 - simulated opponents, mid-game leaderboard, and final results;
 - automatic unfamiliar-word tracking;
+- an in-app how-to-play guide with the complete battle flow;
+- Koru Points earned from battle score at a rate of 20 score to 1 point;
+- a reward shop with locally persisted purchases;
+- four selectable, locally persisted themes applied across the home, room, and battle flow;
 - Māori and Whakatōhea-oriented starter content.
 
 Simulated players are used so the full experience can be demonstrated on one device. Google/Facebook login, real cross-device rooms, audio playback, and production content review are the next integration steps; they are not represented as finished features in this repository.
@@ -28,11 +33,20 @@ npm start
 
 Then scan the QR code with Expo Go, or press `a` for Android / `i` for iOS.
 
+For a USB-connected Android phone, keep Metro running and forward its port if the phone cannot reach the LAN address:
+
+```bash
+adb reverse tcp:8081 tcp:8081
+npm run android -- --localhost
+```
+
 Type-check the app with:
 
 ```bash
 npm run typecheck
 ```
+
+See [`docs/FEATURES.md`](docs/FEATURES.md) for the implemented screens, scoring rules, point economy, persistence behaviour, and current demo limitations.
 
 ## Optional Supabase setup
 

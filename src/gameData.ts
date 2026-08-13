@@ -94,10 +94,10 @@ export const QUESTIONS: Question[] = [
 ];
 
 export const INITIAL_PLAYERS: Player[] = [
-  { id: 'me', name: 'Kahu', avatar: '🦅', score: 0, combo: 0, correct: 0, ready: true, isMe: true },
+  { id: 'me', name: 'Kahu', avatar: '🦅', score: 0, combo: 0, correct: 0, ready: false, isMe: true },
   { id: 'ana', name: 'Ana', avatar: '🌺', score: 0, combo: 0, correct: 0, ready: true },
   { id: 'tama', name: 'Tama', avatar: '🐋', score: 0, combo: 0, correct: 0, ready: true },
-  { id: 'mia', name: 'Mia', avatar: '🌿', score: 0, combo: 0, correct: 0, ready: false },
+  { id: 'mia', name: 'Mia', avatar: '🌿', score: 0, combo: 0, correct: 0, ready: true },
 ];
 
 export const DAILY_WORD = {

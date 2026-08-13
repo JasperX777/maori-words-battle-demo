@@ -1,4 +1,5 @@
 export type Screen =
+  | 'login'
   | 'home'
   | 'setup'
   | 'join'
@@ -7,7 +8,10 @@ export type Screen =
   | 'feedback'
   | 'leaderboard'
   | 'results'
-  | 'unfamiliar';
+  | 'unfamiliar'
+  | 'howToPlay'
+  | 'shop'
+  | 'themes';
 
 export type Difficulty = 1 | 2 | 3;
 
@@ -50,4 +54,27 @@ export type RoomSettings = {
   rounds: number;
   category: Category;
   maxPlayers: number;
+};
+
+export type ThemeId = 'forest' | 'ocean' | 'sunset' | 'night';
+
+export type HomeTheme = {
+  id: ThemeId;
+  name: string;
+  icon: string;
+  description: string;
+  background: string;
+  hero: string;
+  heroButton: string;
+  heroAccent: string;
+  heroRing: string;
+};
+
+export type ShopItem = {
+  id: string;
+  name: string;
+  description: string;
+  icon: string;
+  price: number;
+  category: 'Avatar' | 'Profile' | 'Celebration' | 'Sticker';
 };
