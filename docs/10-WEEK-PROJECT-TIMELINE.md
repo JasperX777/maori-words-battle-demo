@@ -8,7 +8,7 @@ The project uses React Native for the mobile application and Supabase for planne
 
 ## 2. Planning Assumptions
 
-- The team consists of two people, identified below as **Member A** and **Member B**. These labels can be replaced with the team members' names.
+- The team consists of two people, identified below as **Jasper** and **Jazeena**. These labels can be replaced with the team members' names.
 - Weeks 1 and 2 cover discovery, planning, documentation, and prototype validation. Formal development begins in Week 3.
 - The existing prototype can be reused, but simulated login or multiplayer behaviour must not be treated as production-ready cloud functionality.
 - Whakatōhea language, history, imagery, and stories must be reviewed by an appropriate cultural adviser or community representative before public release.
