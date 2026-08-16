@@ -15,6 +15,8 @@ export type Screen =
 
 export type Difficulty = 1 | 2 | 3;
 
+export type QuestionTime = 10 | 15 | 20 | 30;
+
 export type Category =
   | 'All topics'
   | 'Animals'
@@ -54,6 +56,7 @@ export type RoomSettings = {
   rounds: number;
   category: Category;
   maxPlayers: number;
+  questionTime: QuestionTime;
 };
 
 export type ThemeId = 'forest' | 'ocean' | 'sunset' | 'night';

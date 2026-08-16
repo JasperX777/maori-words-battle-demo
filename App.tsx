@@ -22,6 +22,7 @@ import {
   SHOP_ITEMS,
   STARTING_POINTS,
 } from './src/rewards';
+import { DEFAULT_ROOM_SETTINGS, QUESTION_TIME_OPTIONS, getQuestionTime } from './src/roomSettings';
 import { Category, Difficulty, Player, Question, RoomSettings, Screen, ShopItem, ThemeId } from './src/types';
 
 const COLORS = {
@@ -177,13 +178,13 @@ function AppHeader({ title, onBack, trailing }: { title: string; onBack?: () => 
 
 export default function App() {
   const [screen, setScreen] = useState<Screen>('login');
-  const [settings, setSettings] = useState<RoomSettings>({ difficulty: 1, rounds: 5, category: 'All topics', maxPlayers: 4 });
+  const [settings, setSettings] = useState<RoomSettings>(DEFAULT_ROOM_SETTINGS);
   const [players, setPlayers] = useState<Player[]>(INITIAL_PLAYERS);
   const [roundQuestions, setRoundQuestions] = useState<Question[]>([]);
   const [questionIndex, setQuestionIndex] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState('');
   const [typedAnswer, setTypedAnswer] = useState('');
-  const [timeLeft, setTimeLeft] = useState(15);
+  const [timeLeft, setTimeLeft] = useState<number>(DEFAULT_ROOM_SETTINGS.questionTime);
   const [lastCorrect, setLastCorrect] = useState(false);
   const [lastPoints, setLastPoints] = useState(0);
   const [unfamiliarWords, setUnfamiliarWords] = useState<Question[]>([QUESTIONS[1], QUESTIONS[9]]);
@@ -305,7 +306,7 @@ export default function App() {
     setQuestionIndex(0);
     setSelectedAnswer('');
     setTypedAnswer('');
-    setTimeLeft(15);
+    setTimeLeft(getQuestionTime(settings));
     setEarnedKoruPoints(0);
     setPointsAwarded(false);
     setScreen('question');
@@ -326,14 +327,14 @@ export default function App() {
     setQuestionIndex(nextIndex);
     setSelectedAnswer('');
     setTypedAnswer('');
-    setTimeLeft(15);
+    setTimeLeft(getQuestionTime(settings));
     setScreen(nextIndex % 3 === 0 ? 'leaderboard' : 'question');
   };
 
   const continueFromLeaderboard = () => {
     setSelectedAnswer('');
     setTypedAnswer('');
-    setTimeLeft(15);
+    setTimeLeft(getQuestionTime(settings));
     setScreen('question');
   };
 
@@ -665,6 +666,13 @@ export default function App() {
         ))}
       </View>
 
+      <Text style={styles.fieldLabel}>TIME PER QUESTION</Text>
+      <View style={styles.segmentedControl}>
+        {QUESTION_TIME_OPTIONS.map((questionTime) => (
+          <ChoiceChip {...themedChipProps} key={questionTime} label={`${questionTime}s`} selected={settings.questionTime === questionTime} onPress={() => setSettings({ ...settings, questionTime })} wide />
+        ))}
+      </View>
+
       <Text style={styles.fieldLabel}>MAX PLAYERS</Text>
       <View style={styles.segmentedControl}>
         {[2, 4, 6].map((maxPlayers) => (
@@ -798,6 +806,12 @@ export default function App() {
                 <ChoiceChip {...themedChipProps} key={rounds} label={`${rounds}`} wide selected={settings.rounds === rounds} onPress={() => setSettings({ ...settings, rounds })} />
               ))}
             </View>
+            <Text style={styles.inlineSettingLabel}>TIME PER QUESTION</Text>
+            <View style={styles.segmentedControl}>
+              {QUESTION_TIME_OPTIONS.map((questionTime) => (
+                <ChoiceChip {...themedChipProps} key={questionTime} label={`${questionTime}s`} wide selected={settings.questionTime === questionTime} onPress={() => setSettings({ ...settings, questionTime })} />
+              ))}
+            </View>
             <Text style={styles.inlineSettingLabel}>MAX PLAYERS</Text>
             <View style={styles.segmentedControl}>
               {[2, 4, 6].map((maxPlayers) => (
@@ -810,6 +824,7 @@ export default function App() {
             <View style={styles.summaryRow}><Text style={styles.summaryLabel}>Difficulty</Text><Text style={styles.summaryValue}>Level {settings.difficulty}</Text></View>
             <View style={styles.summaryRow}><Text style={styles.summaryLabel}>Category</Text><Text style={styles.summaryValue}>{settings.category}</Text></View>
             <View style={styles.summaryRow}><Text style={styles.summaryLabel}>Rounds</Text><Text style={styles.summaryValue}>{settings.rounds}</Text></View>
+            <View style={styles.summaryRow}><Text style={styles.summaryLabel}>Time per question</Text><Text style={styles.summaryValue}>{settings.questionTime} seconds</Text></View>
             <View style={styles.summaryRow}><Text style={styles.summaryLabel}>Max players</Text><Text style={styles.summaryValue}>{settings.maxPlayers}</Text></View>
           </View>
         )}
